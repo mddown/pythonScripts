@@ -1,9 +1,9 @@
 import arcpy
 import os
 
-featureClass = arcpy.GetParameterAsText(0)
-featureClassUniqueField = arcpy.GetParameterAsText(1)
-outputFolder = arcpy.GetParameterAsText(2)
+featureClass = arcpy.GetParameterAsText(0) # Feature Layer or Feature Class
+featureClassUniqueField = arcpy.GetParameterAsText(1) # Field
+outputFolder = arcpy.GetParameterAsText(2) # Folder
 
 d = {row[0]:row[1] for row in arcpy.da.SearchCursor(featureClass, ['OID@', featureClassUniqueField])}
 print (d)
